@@ -139,7 +139,7 @@ namespace BaSyx.Common.UI.Swagger
             });
         }
 
-        internal protected class ControllerSelector : IDocumentFilter
+        private class ControllerSelector : IDocumentFilter
         {
             private readonly Interface _interfaceType;
             private readonly string _interfaceName;
