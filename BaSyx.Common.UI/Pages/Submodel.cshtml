@@ -6,6 +6,8 @@
 
 @{
     ISubmodelServiceProvider sp = Model.ServiceProvider;
+    ISubmodel submodel = sp.GetBinding();
+	IWebHostEnvironment hostingEnvironment = Model.HostingEnvironment;
     ServerSettings settings = Model.Settings;
     ISubmodel submodel = sp.GetBinding();
 

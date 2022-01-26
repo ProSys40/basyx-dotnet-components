@@ -15,7 +15,11 @@
         submodelServiceProviders = retrievedSubmodelServiceProvider.Entity;
     }
 
-    ViewData["Title"] = settings.UIConfig?.Title ?? "Submodel Repository";
+    IWebHostEnvironment hostingEnvironment = Model.HostingEnvironment;
+    ServerSettings settings = Model.Settings;
+    string pathToCompanyLogo = settings.Miscellaneous.TryGetValue("CompanyLogo", out string path) ? path : string.Empty;
+
+    ViewData["Title"] = "Submodel Repository";
     ViewData["ApiRoot"] = "/submodels";
     ViewData["ApiType"] = "SubmodelRepository";
     ViewData["aasId"] = string.Empty;

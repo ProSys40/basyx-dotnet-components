@@ -31,7 +31,7 @@ namespace BaSyx.API.Http.Controllers
     {
         private readonly ISubmodelRepositoryServiceProvider serviceProvider;
 
-#if NETCOREAPP3_1
+#if NETCOREAPP3_1 || NET6_0_OR_GREATER
         private readonly IWebHostEnvironment hostingEnvironment;
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace BaSyx.API.Http.Controllers
         /// <param name="environment">The Hosting Environment provided by the dependency injection</param>
         public SubmodelRepositoryController(ISubmodelRepositoryServiceProvider submodelRepositoryServiceProvider, IWebHostEnvironment environment)
         {
-            shellServiceProvider = aasServiceProvider;
+            serviceProvider = submodelRepositoryServiceProvider;
             hostingEnvironment = environment;
         }
 #else
