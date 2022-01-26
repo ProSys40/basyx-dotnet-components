@@ -27,7 +27,7 @@ namespace BaSyx.API.Http.Controllers.PackageService
     {
         private readonly IAssetAdministrationShellServiceProvider shellServiceProvider;
 
-#if NETCOREAPP3_1
+#if NETCOREAPP3_1 || NET5_0_OR_GREATER
         private readonly IWebHostEnvironment hostingEnvironment;
 
         /// <summary>

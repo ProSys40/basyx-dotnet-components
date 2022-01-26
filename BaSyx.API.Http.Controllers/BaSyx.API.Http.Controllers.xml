@@ -9,7 +9,7 @@
             The Asset Administration Shell Controller
             </summary>
         </member>
-        <member name="M:BaSyx.API.Http.Controllers.AssetAdministrationShellController.#ctor(BaSyx.API.Components.IAssetAdministrationShellServiceProvider,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+        <member name="M:BaSyx.API.Http.Controllers.AssetAdministrationShellController.#ctor(BaSyx.API.Components.IAssetAdministrationShellServiceProvider,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
             <summary>
             The constructor for the Asset Administration Shell Controller
             </summary>
@@ -174,7 +174,7 @@
             The Asset Administration Shell Repository Controller
             </summary>
         </member>
-        <member name="M:BaSyx.API.Http.Controllers.AssetAdministrationShellRepositoryController.#ctor(BaSyx.API.Components.IAssetAdministrationShellRepositoryServiceProvider,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+        <member name="M:BaSyx.API.Http.Controllers.AssetAdministrationShellRepositoryController.#ctor(BaSyx.API.Components.IAssetAdministrationShellRepositoryServiceProvider,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
             <summary>
             The constructor for the Asset Administration Shell Repository Controller
             </summary>
@@ -380,7 +380,7 @@
             The Submodel Controller
             </summary>
         </member>
-        <member name="M:BaSyx.API.Http.Controllers.SubmodelController.#ctor(BaSyx.API.Components.ISubmodelServiceProvider,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+        <member name="M:BaSyx.API.Http.Controllers.SubmodelController.#ctor(BaSyx.API.Components.ISubmodelServiceProvider,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
             <summary>
             The constructor for the Submodel Controller
             </summary>
@@ -508,7 +508,7 @@
             The Submodel Repository Controller
             </summary>
         </member>
-        <member name="M:BaSyx.API.Http.Controllers.SubmodelRepositoryController.#ctor(BaSyx.API.Components.ISubmodelRepositoryServiceProvider,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+        <member name="M:BaSyx.API.Http.Controllers.SubmodelRepositoryController.#ctor(BaSyx.API.Components.ISubmodelRepositoryServiceProvider,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
             <summary>
             The constructor for the Submodel Repository Controller
             </summary>

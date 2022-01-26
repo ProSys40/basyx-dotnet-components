@@ -1,5 +1,7 @@
 ﻿@page
 @model BaSyx.Common.UI.Pages.AssetAdministrationShellModel
+@using System.Collections.Generic
+@using System.Linq
 @using BaSyx.API.Components;
 @using BaSyx.Models.Core.AssetAdministrationShell.Generics;
 @using BaSyx.Utils.Settings.Types;
@@ -17,7 +19,7 @@
     }
 
     IAssetAdministrationShell aas = sp.GetBinding();
-    IHostingEnvironment hostingEnvironment = Model.HostingEnvironment;
+	IWebHostEnvironment hostingEnvironment = Model.HostingEnvironment;
     ServerSettings settings = Model.Settings;
     string pathToCompanyLogo = settings.Miscellaneous.TryGetValue("CompanyLogo", out string path) ? path : string.Empty;
 

@@ -18,7 +18,7 @@
         shellServiceProviders = retrievedShellServiceProviders.Entity;
     }
 
-    IHostingEnvironment hostingEnvironment = Model.HostingEnvironment;
+	IWebHostEnvironment hostingEnvironment = Model.HostingEnvironment;
     ServerSettings settings = Model.Settings;
     string pathToCompanyLogo = settings.Miscellaneous.TryGetValue("CompanyLogo", out string path) ? path : string.Empty;
 
