@@ -5,6 +5,7 @@
 @using BaSyx.API.Components;
 @using BaSyx.Models.Core.AssetAdministrationShell.Generics;
 @using BaSyx.Utils.Settings.Types;
+@using Microsoft.AspNetCore.Hosting
 
 @{
     IAssetAdministrationShellServiceProvider sp = Model.ServiceProvider;
@@ -19,7 +20,6 @@
 
     IAssetAdministrationShell aas = sp.GetBinding();
 	IWebHostEnvironment hostingEnvironment = Model.HostingEnvironment;
-    ServerSettings settings = Model.Settings;
     string pathToCompanyLogo = settings.Miscellaneous.TryGetValue("CompanyLogo", out string path) ? path : string.Empty;
 
     ViewData["Title"] = settings.UIConfig?.Title ?? aas.IdShort;

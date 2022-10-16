@@ -8,6 +8,7 @@
 @using System.Security.Cryptography;
 @using System.Text;
 @using System.Text.RegularExpressions;
+@using Microsoft.AspNetCore.Hosting
 
 @{
     IAssetAdministrationShellRegistry registry = Model.ServiceProvider;
@@ -21,7 +22,6 @@
     }
 
 	IWebHostEnvironment hostingEnvironment = Model.HostingEnvironment;
-    ServerSettings settings = Model.Settings;
     string pathToCompanyLogo = settings.Miscellaneous.TryGetValue("CompanyLogo", out string path) ? path : string.Empty;
 
     ViewData["Title"] = "BaSyx Registry UI";
