@@ -6,6 +6,7 @@
 @using System.Security.Cryptography;
 @using System.Text;
 @using System.Text.RegularExpressions;
+@using Microsoft.AspNetCore.Hosting
 
 @{
     IAssetAdministrationShellRepositoryServiceProvider sp = Model.ServiceProvider;
@@ -19,7 +20,6 @@
     }
 
 	IWebHostEnvironment hostingEnvironment = Model.HostingEnvironment;
-    ServerSettings settings = Model.Settings;
     string pathToCompanyLogo = settings.Miscellaneous.TryGetValue("CompanyLogo", out string path) ? path : string.Empty;
 
     ViewData["Title"] = "Asset Administration Shell Repository";
