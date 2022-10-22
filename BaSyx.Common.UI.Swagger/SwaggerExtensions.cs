@@ -104,6 +104,45 @@ namespace BaSyx.Common.UI.Swagger
     }
     public static class SwaggerExtensions
     {
+
+        public static IServiceCollection AddSwagger(this IServiceCollection serviceCollection, Interface interfaceType, IServerApplication serverApp)
+        {
+            OpenApiInfo info = OpenApiInfos.GetApiInfo(interfaceType);
+            
+            serviceCollection.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", info);
+
+                // Set the comments path for the Swagger JSON and UI.
+                string xmlFile = $"{serverApp.ControllerAssembly.GetName().Name}.xml";
+                string executionPath = serverApp.Settings?.ExecutionPath ?? Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                string xmlPath = Path.Combine(executionPath, xmlFile);
+                if (EmbeddedResource.CheckOrWriteRessourceToFile(serverApp.ControllerAssembly, xmlPath))
+                    c.IncludeXmlComments(xmlPath, true);
+
+                if (interfaceType != Interface.All)
+                    c.DocumentFilter<ControllerSelector>(interfaceType);
+            });
+            serviceCollection.AddSwaggerGenNewtonsoftSupport();
+
+            return serviceCollection;
+        }
+
+        public static IApplicationBuilder AddSwaggerUI(this IApplicationBuilder applicationBuilder, Interface interfaceType)
+        {
+            OpenApiInfo info = OpenApiInfos.GetApiInfo(interfaceType);
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            applicationBuilder.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
+            applicationBuilder.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", info.Title);
+            });
+
+            return applicationBuilder;
+        }
+
         public static void AddSwagger(this IServerApplication serverApp, Interface interfaceType)
         {
             OpenApiInfo info = OpenApiInfos.GetApiInfo(interfaceType);
